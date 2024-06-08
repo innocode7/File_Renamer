@@ -69,13 +69,17 @@ label_new_text.grid(row=2, column=0, padx=10, pady=10)
 entry_new_text = tk.Entry(root, width=50)
 entry_new_text.grid(row=2, column=1, padx=10, pady=10)
 
+# Create a frame for the buttons
+button_frame = tk.Frame(root)
+button_frame.grid(row=3, column=0, columnspan=3, pady=20)
+
 # Create and place the rename button
-button_rename = tk.Button(root, text="Rename Files", command=start_renaming)
-button_rename.grid(row=3, column=0, columnspan=3, padx=10, pady=20)
+button_rename = tk.Button(button_frame, text="Rename Files", command=start_renaming)
+button_rename.grid(row=0, column=0, padx=10)
 
 # Create and place the quit button
-button_quit = tk.Button(root, text="Quit", command=quit_application)
-button_quit.grid(row=4, column=0, columnspan=3, padx=10, pady=10)
+button_quit = tk.Button(button_frame, text="Quit", command=quit_application)
+button_quit.grid(row=0, column=1, padx=10)
 
 # Run the main event loop
 root.mainloop()
