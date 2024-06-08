@@ -39,20 +39,18 @@
  ```
 
 3. rename_files_gui.py가 있는 디렉터리로 이동합니다.
-```PowerShell
-cd path_to_your_script_directory
-```
-
- ``` cd path_to_your_script_directory
+ ```PowerShell
+ cd path_to_your_script_directory
  ```
  
 4. PyInstaller를 실행합니다:
  ```PowerShell
- pyinstaller --onefile --noconsole rename_files_gui.py
+ pyinstaller --onefile --noconsole file_renamer.py
  ```
 
-5. 실행 파일 찾기:
+5. 실행 파일 찾기
  프로세스가 완료되면 프로젝트 폴더 내의 dist 폴더에서 실행 파일을 찾을 수 있습니다.
  실행 파일 이름은 'file_renamer.exe' (Windows의 경우)입니다.
-    
+
+
 
