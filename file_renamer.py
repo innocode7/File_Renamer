@@ -5,22 +5,19 @@ from tkinter import messagebox
 
 def rename_files_in_directory(directory, old_text, new_text):
     try:
-        # List all files in the specified directory
         files = os.listdir(directory)
+        files_to_rename = [filename for filename in files if old_text in filename]
 
-        for filename in files:
-            # Check if the file name contains the old text
-            if old_text in filename:
-                # Create the new file name by replacing the old text with the new text
-                new_filename = filename.replace(old_text, new_text)
+        if not files_to_rename:
+            messagebox.showerror("Error", f"No files found with the text '{old_text}'")
+            return
 
-                # Create full paths for the old and new file names
-                old_file = os.path.join(directory, filename)
-                new_file = os.path.join(directory, new_filename)
-
-                # Rename the file
-                os.rename(old_file, new_file)
-                print(f'Renamed: {filename} -> {new_filename}')
+        for filename in files_to_rename:
+            new_filename = filename.replace(old_text, new_text)
+            old_file = os.path.join(directory, filename)
+            new_file = os.path.join(directory, new_filename)
+            os.rename(old_file, new_file)
+            print(f'Renamed: {filename} -> {new_filename}')
 
         messagebox.showinfo("Success", "All files have been renamed successfully.")
     except Exception as e:
@@ -36,10 +33,12 @@ def start_renaming():
     directory = entry_directory.get()
     old_text = entry_old_text.get()
     new_text = entry_new_text.get()
-    if directory and old_text and new_text:
-        rename_files_in_directory(directory, old_text, new_text)
-    else:
+
+    if not directory or not old_text or not new_text:
         messagebox.showwarning("Input Error", "Please fill in all fields.")
+        return
+
+    rename_files_in_directory(directory, old_text, new_text)
 
 def quit_application():
     root.quit()
