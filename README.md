@@ -38,7 +38,7 @@
  pip install pyinstaller
  ```
 
-3. rename_files_gui.py가 있는 디렉터리로 이동합니다.<br>
+3. file_renamer.py가 있는 디렉터리로 이동합니다.<br>
  ```PowerShell
  cd path_to_your_script_directory
  ```
@@ -53,4 +53,3 @@
  실행 파일 이름은 'file_renamer.exe' (Windows의 경우)입니다.<br>
 
 ---
-
