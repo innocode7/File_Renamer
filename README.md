@@ -34,20 +34,25 @@
 1. 명령 프롬프트나 터미널을 엽니다.
 
 2. PyInstaller를 설치합니다:
- > pip install pyinstaller
- > 
+ ```PowerShell
+ pip install pyinstaller
+ ```
+
 3. rename_files_gui.py가 있는 디렉터리로 이동합니다.
+```PowerShell
+cd path_to_your_script_directory
+```
+
  ``` cd path_to_your_script_directory
  ```
  
 4. PyInstaller를 실행합니다:
- ``` pyinstaller --onefile --noconsole rename_files_gui.py
+ ```PowerShell
+ pyinstaller --onefile --noconsole rename_files_gui.py
  ```
 
-3. 콘솔 창 없이 실행 파일을 생성하려면 다음 명령을 실행합니다:
-    
-    ```python
-    		pyinstaller --onefile --noconsole rename_files_gui.py
-    ```
+5. 실행 파일 찾기:
+ 프로세스가 완료되면 프로젝트 폴더 내의 dist 폴더에서 실행 파일을 찾을 수 있습니다.
+ 실행 파일 이름은 'file_renamer.exe' (Windows의 경우)입니다.
     
 
