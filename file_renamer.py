@@ -69,5 +69,9 @@ entry_new_text.grid(row=2, column=1, padx=10, pady=10)
 button_rename = tk.Button(root, text="Rename Files", command=start_renaming)
 button_rename.grid(row=3, column=0, columnspan=3, padx=10, pady=20)
 
+# Create and place the quit button
+button_quit = tk.Button(root, text="Quit", command=root.quit)
+button_quit.grid(row=4, column=0, columnspan=3, padx=10, pady=10)
+
 # Run the main event loop
 root.mainloop()
