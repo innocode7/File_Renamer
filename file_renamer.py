@@ -12,14 +12,16 @@ def rename_files_in_directory(directory, old_text, new_text):
             messagebox.showerror("Error", f"No files found with the text '{old_text}'")
             return
 
+        renamed_count = 0
         for filename in files_to_rename:
             new_filename = filename.replace(old_text, new_text)
             old_file = os.path.join(directory, filename)
             new_file = os.path.join(directory, new_filename)
             os.rename(old_file, new_file)
             print(f'Renamed: {filename} -> {new_filename}')
+            renamed_count += 1
 
-        messagebox.showinfo("Success", "All files have been renamed successfully.")
+        messagebox.showinfo("Success", f"Successfully renamed {renamed_count} files.")
     except Exception as e:
         messagebox.showerror("Error", f'An error occurred: {e}')
 
