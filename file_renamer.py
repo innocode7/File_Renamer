@@ -45,6 +45,12 @@ def quit_application():
     root.quit()
     root.destroy()
 
+def on_enter(e):
+    e.widget['background'] = '#d9d9d9'
+
+def on_leave(e):
+    e.widget['background'] = 'SystemButtonFace'
+
 # Create the main window
 root = tk.Tk()
 root.title("File Renamer")
@@ -75,11 +81,15 @@ button_frame.grid(row=3, column=0, columnspan=3, pady=20)
 
 # Create and place the rename button
 button_rename = tk.Button(button_frame, text="Rename Files", command=start_renaming)
-button_rename.grid(row=0, column=0, padx=10)
+button_rename.grid(row=0, column=0, padx=(0, 100), pady=10)
+button_rename.bind("<Enter>", on_enter)
+button_rename.bind("<Leave>", on_leave)
 
 # Create and place the quit button
 button_quit = tk.Button(button_frame, text="Quit", command=quit_application)
-button_quit.grid(row=0, column=1, padx=10)
+button_quit.grid(row=0, column=2, padx=(100, 0), pady=10)
+button_quit.bind("<Enter>", on_enter)
+button_quit.bind("<Leave>", on_leave)
 
 # Run the main event loop
 root.mainloop()
